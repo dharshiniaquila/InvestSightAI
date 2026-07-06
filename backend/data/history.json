@@ -1,0 +1,20 @@
+[
+    {
+        "stock": "tcs",
+        "action": "buy",
+        "amount": 10000.0,
+        "result": "Here is the investment analysis for your simulation:\n\n---\n\n**InvestSignal AI Analysis**\n\n**Stock:** TCS (Tata Consultancy Services)\n**Action:** Buy\n**Amount:** 10000.0\n\n1.  **Recommendation:** Buy\n2.  **Confidence:** 80/100\n3.  **Risk Level:** Medium\n4.  **Short Explanation:** TCS is a global leader in IT services, known for its strong fundamentals, diversified client base, and consistent performance. This purchase aligns with acquiring a high-quality asset positioned to benefit from ongoing digital transformation trends. The company's stability makes it a suitable component for a long-term portfolio.\n5.  **Important Factor to Watch:** Investors should closely monitor the **global economic growth outlook and corporate spending on IT services**, as these factors directly impact TCS's deal pipeline and revenue growth.\n\n---"
+    },
+    {
+        "stock": "string",
+        "action": "string",
+        "amount": 0.0,
+        "result": "{\n  \"recommendation\": \"BUY\",\n  \"confidence\": 85,\n  \"risk\": \"Medium\",\n  \"reason\": \"This investment exhibits potential for long-term capital appreciation, supported by anticipated market growth and strong company fundamentals. Current valuations suggest an attractive entry point for investors seeking exposure to this sector. We project steady performance, though market volatility may present short-term fluctuations.\",\n  \"watch_factor\": \"Overall market sentiment and the company's upcoming earnings reports.\"\n}"
+    },
+    {
+        "stock": "apple",
+        "action": "buy",
+        "amount": 1000.0,
+        "result": "{\"recommendation\": \"BUY\", \"confidence\": 90, \"risk\": \"Medium\", \"reason\": \"Apple maintains a dominant market position with a strong brand, loyal customer base, and robust ecosystem driving recurring revenue. Its consistent innovation in products and services continues to attract users, supporting its long-term growth potential. However, market competition and economic headwinds pose ongoing considerations.\", \"watch_factor\": \"Competitive pressures in key product segments and the success of future product innovations.\"}"
+    }
+]
