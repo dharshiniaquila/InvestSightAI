@@ -1,37 +1,43 @@
 from fastapi import FastAPI
-from models import SimulateRequest
-from ai_service import get_ai_recommendation
-from memory_service import save_simulation, get_history
+from backend.models import SimulateRequest
+from backend.ai_service import get_ai_recommendation, save_memory, get_memory
 
 app = FastAPI()
 
+
 @app.get("/")
 def home():
-    return {"message": "InvestSight AI Backend Running 🚀"}
+    return {"status": "ok"}
+
 
 @app.post("/simulate")
 def simulate(request: SimulateRequest):
+
     try:
-        history = get_history()
+        # 1. Get past memory from Hindsight
+        past_memory = get_memory(request.stock)
+
+        # 2. Save current request into Hindsight memory
+        save_memory(
+            f"{request.stock} | {request.investment} | {request.buy_date} | {request.sell_date} | {request.reason}"
+        )
+
+        print("Saved to Hindsight memory")
+
+        # 3. AI response using memory
         ai_response = get_ai_recommendation(
             request.stock,
             request.investment,
             request.buy_date,
             request.sell_date,
             request.reason,
-            history
+            past_memory
         )
 
-        save_simulation({
-            "stock": request.stock,
-            "investment": request.investment,
-            "buy_date": str(request.buy_date),
-            "sell_date": str(request.sell_date),
-            "reason": request.reason,
-            "ai_result": ai_response
-        })
-
-        return {"result": ai_response, "history": get_history()}
+        return {
+            "result": ai_response,
+            "memory": past_memory
+        }
 
     except Exception as e:
         return {"error": str(e)}
